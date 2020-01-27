@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:            
+    touchapp:
+        image: "touchapp:1.0.0"
+        container_name: touchapp
+        environment:
+            APP_SOURCE: /tmp/source/
+            APP_DESTINATION: /tmp/listener/
+            ERROR_LOG_DIRECTORY: /var/log/touchapp/error
+            INFO_LOG_DIRECTORY: /var/log/touchapp/info
+            INFO_MAX_GIGA_BYTES: 2
+            INFO_BACKUP_COUNT: 10
+            ERROR_MAX_GIGA_BYTES: 1
+            ERROR_BACKUP_COUNT: 5
+        volumes:
+            - /home/arash/sources/t1/source:/tmp/source:rw
+            - /home/arash/sources/t1/success:/tmp/listener:rw
+            - /home/arash/sources/t1/info:/var/log/touchapp/info:rw
+            - /home/arash/sources/t1/error:/var/log/touchapp/error:rw
