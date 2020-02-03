@@ -1,6 +1,6 @@
 FROM python:3
 
-ADD app.py /
+ADD *.py /
 
 RUN pip install pyinotify
 
